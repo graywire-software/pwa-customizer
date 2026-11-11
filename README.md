@@ -1,6 +1,9 @@
-﻿# PWA Customizer
+<img width="256" height="256" alt="icon_rounded" src="https://github.com/user-attachments/assets/1f2a6ed0-cfab-49e9-8579-6f845180c7b3" />
 
-PWA Customizer is a Chromium extension for changing an installed web app's title-bar color and page title. Settings are saved per website and both features are off by default.
+
+# PWA Customizer
+
+PWA Customizer is a Chrome / Chromium extension for changing an installed web app's title-bar color and page title. Settings are saved per website.
 
 ## Install
 
@@ -28,7 +31,7 @@ Preferences are stored locally in the browser profile. The extension requests ac
 
 The extension uses `activeTab` to identify the current site, `storage` to save settings, and `scripting` to apply them. Short title mode fetches the site's linked web app manifest, subject to the page's normal origin and CORS rules. There is no analytics or external name-detection service.
 
-When the compatible YouTools extension is installed, YouTube color and title preferences are shared between the two extensions. Other sites' settings and page contents are not shared.
+When the compatible [YouTools](https://github.com/graywire-software/youtools) extension is installed, YouTube color and title preferences are shared between the two extensions. Other sites' settings and page contents are not shared.
 
 ## Development
 
@@ -46,8 +49,4 @@ python scripts/package.py
 
 The browser tests use an isolated profile and default to Brave's macOS path. Set `BROWSER_PATH` to your Chromium-based browser executable on other systems. Icon generation uses Playwright's Chromium by default; set `BROWSER_PATH` to use an existing browser, or install Playwright Chromium with `python -m playwright install chromium`. The packaging script creates `PWA-Customizer.zip` from the contents of `extension/`.
 
-YouTools integration depends on the companion extension IDs configured in both projects. When publishing either extension under a different ID, update the IDs in both projects before packaging; the extensions still work independently without the companion.
-
-## License
-
-[MIT](LICENSE)
+[YouTools](https://github.com/graywire-software/youtools) integration depends on the companion extension IDs configured in both projects. When publishing either extension under a different ID, update the IDs in both projects before packaging; the extensions still work independently without the companion.

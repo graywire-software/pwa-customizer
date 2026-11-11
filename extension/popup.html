@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>PWA Customizer</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="shared.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="icons/48.png" width="36" height="36" alt="">
+    <h1>PWA Customizer</h1>
+  </header>
+
+  <main>
+    <section class="site-card" aria-label="Current website">
+      <div id="site-name" title="">Loading…</div>
+      <div class="enable-row">
+        <label for="enabled">Recolor title bar</label>
+        <input id="enabled" type="checkbox" role="switch" disabled aria-controls="controls">
+      </div>
+      <div class="enable-row">
+        <label for="title-enabled">Change page title</label>
+        <input id="title-enabled" type="checkbox" role="switch" disabled aria-controls="title-controls">
+      </div>
+    </section>
+
+    <div id="controls" hidden>
+      <fieldset id="modes" aria-label="Title bar color">
+        <div class="mode-grid">
+          <label class="mode">
+            <input type="radio" name="mode" value="light">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+            <span>Force light</span>
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="dark">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+            <span>Force dark</span>
+          </label>
+          <label class="mode">
+            <input type="radio" name="mode" value="custom">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C9 7 5 11 5 15a7 7 0 0 0 14 0c0-4-4-8-7-12Z"/><path d="M8.5 15a3.5 3.5 0 0 0 3.5 3.5"/></svg>
+            <span>Custom</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <form id="custom-form" hidden novalidate>
+        <label for="hex">Custom color</label>
+        <div class="hex-row">
+          <div class="hex-input-wrap">
+            <span id="swatch" aria-hidden="true"></span>
+            <input id="hex" type="text" placeholder="#202124" maxlength="32" spellcheck="false" autocomplete="off" autocapitalize="characters" aria-describedby="hex-help hex-error">
+          </div>
+          <button id="apply" type="submit">Apply</button>
+        </div>
+        <p id="hex-help" class="help">3 or 6 hex digits. The # is optional.</p>
+        <p id="hex-error" class="error" role="alert" hidden></p>
+      </form>
+
+    </div>
+
+    <section id="title-controls" hidden aria-label="Page title">
+      <fieldset id="title-modes" aria-label="Page title mode">
+        <label class="title-option" title="Sets the page title to the app name so the browser shows the app name without an extra page title.">
+          <input type="radio" name="title-mode" value="short" aria-describedby="short-tooltip">
+          <span>Short page title</span>
+        </label>
+        <span class="tooltip-anchor" tabindex="0" aria-label="About short page title" aria-describedby="short-tooltip">ⓘ
+          <span id="short-tooltip" role="tooltip">Sets the page title to the app name so the browser shows the app name without an extra page title.</span>
+        </span>
+        <label class="title-option">
+          <input type="radio" name="title-mode" value="custom">
+          <span>Custom page title</span>
+        </label>
+      </fieldset>
+      <p id="short-status" class="help" role="status" hidden></p>
+      <form id="title-form" hidden>
+      <div class="input-row">
+        <input id="page-title" type="text" maxlength="200" placeholder="Use website title" autocomplete="off" aria-label="Custom page title" aria-describedby="title-help" disabled>
+        <button id="apply-title" type="submit" disabled>Apply</button>
+      </div>
+      <p id="title-help" class="help">Leave blank to use the website’s title.<br>Browser may not allow app name to be hidden</p>
+      </form>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+</body>
+</html>

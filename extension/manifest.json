@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "PWA Customizer",
+  "version": "1.4.0",
+  "description": "Customize each web app’s title-bar color and page title. Settings are saved per website and off by default.",
+  "minimum_chrome_version": "110",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "PWA Customizer",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "externally_connectable": {
+    "ids": [
+      "biefmmkfgdboiipjdgngkloaaoodnncb"
+    ]
+  }
+}
